@@ -13,7 +13,6 @@ require_once "../controllers/loginController.php";
 </head>
 <body>
     <h1>LOGIN</h1>
-    
     <!-- EN EL ACTION NO TENGO CLARO QUE LA RUTA SEA ESA -->
     <form action="loginController.php" method="POST">
       <label for="user">User</label>
@@ -22,6 +21,7 @@ require_once "../controllers/loginController.php";
       <input type="password" name="password" id="password">
       <input type="submit" value="Enviar" name="enviar">
    </form>
+
 
 </body>
 </html>
