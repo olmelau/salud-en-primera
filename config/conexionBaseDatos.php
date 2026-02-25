@@ -22,4 +22,5 @@ class ConexionBD {
         return self::$conexion;
     }
 }
+
 ?>

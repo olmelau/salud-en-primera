@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //se busca en la db si es admin y se almacena el id en el array $admin
     //header a la localizacion que corresponda
 
+    
     //si es user, lo mismo pero con user
     //header a la localizacion que corresponda
 
