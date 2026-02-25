@@ -14,8 +14,8 @@ require_once "../controllers/loginController.php";
 <body>
     <h1>LOGIN</h1>
     
-    <!-- EN EL ACTION NO TENGO CLARO QUE LA RUTA SEA ESA -->
-    <form action="loginController.php" method="POST">
+    
+    <form action="index.php?action=loginController" method="POST">
       <label for="user">User</label>
       <input type="text" name="user" id="user">
       <label for="pass">Contraseña</label>
