@@ -8,7 +8,10 @@ class controladorGeneral
         require_once '../app/views/home.php';
     }
 
-    //Método para mostrar el historial de préstamos.
+    
+    public function inicioSesion() {
 
-    public function inicioSesion() {}
+        
+
+    }
 }
