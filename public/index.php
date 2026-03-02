@@ -18,7 +18,8 @@ Cada una de estas condiciones llamara a cada una de los controladores
 
 EJEMPLO
 
-$action = $_GET['action'] ?? 'home';
+$action = $_GET['action'] ?? $_POST['action'] ?? 'home';
+
 
 if (method_exists($controller, $action)) {
     $controller->$action();
@@ -44,6 +45,22 @@ Y ya con los datos de la API y Javascript crearemos lo que se tenga que ver en A
 
 
 */
+
+// Incluimos el controlador de préstamos
+require_once '../app/controllers/controladorGeneral.php';
+
+// Crear una instancia del controlador
+$controller = new controladorGeneral();
+
+// Determinar la acción
+$action = $_GET['action'] ?? $_POST['action'] ?? 'home';
+
+// Ejecutar la acción solicitada
+if (method_exists($controller, $action)) {
+    $controller->$action();
+} else {
+    echo "<h1>Error: Acción no válida</h1>";
+}
 
 
 ?>
