@@ -14,7 +14,6 @@ require_once "../controllers/loginController.php";
 <body>
     <h1>LOGIN</h1>
     
-    
     <form action="index.php?action=loginController" method="POST">
       <label for="user">User</label>
       <input type="text" name="user" id="user">
@@ -22,6 +21,7 @@ require_once "../controllers/loginController.php";
       <input type="password" name="password" id="password">
       <input type="submit" value="Enviar" name="enviar">
    </form>
+
 
 </body>
 </html>

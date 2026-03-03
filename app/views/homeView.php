@@ -2,7 +2,7 @@
 
 <!-- FORMULARIO DE INCIO DE SESION -->
 
-<form action="index.php?action=inicioSesion" method="post">
+<form action="index.php?action=" method="post">
 
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre">

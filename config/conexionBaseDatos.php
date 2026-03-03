@@ -5,6 +5,8 @@ class ConexionBD {
     private static $conexion=null;
 
     public static function conexion() {
+        
+    
         //Si ya hay una conexión activa, no volvemos a crear la conexión
         if(self::$conexion===null){
             try {
@@ -22,4 +24,5 @@ class ConexionBD {
         return self::$conexion;
     }
 }
+
 ?>
