@@ -9,9 +9,5 @@ class controladorGeneral
     }
 
     
-    public function inicioSesion() {
-
-        
-
-    }
+    
 }

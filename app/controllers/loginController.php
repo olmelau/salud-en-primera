@@ -1,56 +1,66 @@
 <?php
-/**
- * PROCESAR LOGIN 
- * 
- * Desde el fomulario vendrán los datos para identificar 
- * al usuario
- * 
- */
+
+require_once '../models/loginModel.php';
 
 
-require_once("config/configBaseDatos.php");
-require_once("config/conexionBaseDatos.php");
 
-//¿Hay que incluir esto para procesar lo que venga del login?
-require_once("../controllers/loginController.php");
+class LoginController
+{
 
 
-session_start();
 
-//verificamos que el método de envío sea post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    public function procesarLogin($datos)
+    {
 
-    //si el formulario se ha enviado, lo procesamos
-    if (isset($_POST['enviar'])) {
+        //de los datos que nos llegan por parametros, sacamos la info del usuario
+        //en este caso: $user y $password
 
-        //quitar espacios y añadir a las variables lo que viene del form
-        $user = trim($_POST['user']);
-        $password = $_POST['password'];
+        $usuario = $datos['usuario'];
+        $password = $datos['password'];
+
+
+
+        $modelo = new LoginModel();
+        $id_user = $modelo->buscarUsuario($usuario, $password);
+
+        if ($id_user) {
+
+            $rolname = $modelo->buscarRol($id_user);
+
+            switch ($rolname) {
+
+                case 'administrador':
+
+                    $_SESSION[$rolname];
+                    $_SESSION[$id_user];
+                    header('index.php?controller=admin&action=mostrarPaginaAdmin');
+
+                case 'participante':
+                    $_SESSION[$rolname];
+                    $_SESSION[$id_user];
+                    header('index.php?controller=participante&action=mostrarPaginaParticipante');
+                    break;
+
+                default:
+                    echo "Error. Usuario no encontrado";
+                    break;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
-
-    //La contraseña y/o user no puede estar vacio
-    if (empty($user) || empty($password)) {
-        echo "usuario y/o contraseña no pueden estar vacíos.";
-    }
-
-    //creamos el obj que manejará la base de datos
-    $db = new ConexionBD();
-
-    //se busca en la db si es admin y se almacena el id en el array $admin
-    //header a la localizacion que corresponda
-
-    
-    //si es user, lo mismo pero con user
-    //header a la localizacion que corresponda
-
-
-
-
-
 
 }
-
-
 
 
 ?>
