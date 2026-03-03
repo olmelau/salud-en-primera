@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
 
 HACER UNA VISTA HOME, donde se muestra descripcion del proyecto y unas graficas o algo asi han dicho.
@@ -46,21 +46,81 @@ Y ya con los datos de la API y Javascript crearemos lo que se tenga que ver en A
 
 */
 
-// Incluimos el controlador de préstamos
-require_once '../app/controllers/controladorGeneral.php';
 
-// Crear una instancia del controlador
-$controller = new controladorGeneral();
 
-// Determinar la acción
+/*
+ $url = isset($_GET['url']) ? explode('/', rtrim($_GET['url'], '/')) : [];
+        
+        // Determinar controlador
+        if(!empty($url[0])) {
+            $nombreControlador = ucfirst($url[0]) . 'Controller';
+            $archivoControlador = 'controladores/' . $nombreControlador . '.php';
+            
+            if(file_exists($archivoControlador)) {
+                require_once $archivoControlador;
+                $controlador = new $nombreControlador();
+                
+                // Determinar método
+                $metodo = isset($url[1]) && method_exists($controlador, $url[1]) ? $url[1] : 'index';
+                
+                // Llamar al método
+                $controlador->$metodo();
+            } else {
+                // Si no existe el controlador, usar el por defecto
+                $this->cargarControladorPorDefecto($url);
+            }
+
+*/
+
+
+$controller = $_GET['controller'] ?? $_POST['controller'] ?? 'home';
 $action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
-// Ejecutar la acción solicitada
-if (method_exists($controller, $action)) {
-    $controller->$action();
-} else {
-    echo "<h1>Error: Acción no válida</h1>";
+$parametros = [];
+
+//Un ejemplo de GET o POST que nos llega es el siguiente: index.php?controller=usuario&action=editar&id=1&nombre=juan&email=juan@test.com
+//Tenemos que recorrer todo lo que nos llega
+//Arriba ya hemos guardado en la variable $controller el valor usuario
+//Y en la variable Action el valor editar, que sera un metodo dentro de la clase UsuarioController.
+
+foreach ($_GET as $key => $value) { //Recorremos todos los valores que nos vienen en el get, guardando como clave valor.
+    if (!in_array($key, ['controller', 'action'])) { //Esta linea es porque no queremos incluir controller ni action en el array parametros.
+        $parametros[$key] = $value; //Importante guardarlo como array porque no sabemos cuantos valores pasaremos.
+    }
+}
+
+//Lo mismo si el method es POST, por ejemplo para el inicio de sesion, sera algo asi:
+//index.php?controller=login&action=procesarLogin&usuario=Asier&password=Password
+foreach ($_POST as $key => $value) {
+    if (!in_array($key, ['controller', 'action'])) {
+        $parametros[$key] = $value;
+    }
 }
 
 
+
+// Construir nombre del archivo y clase
+$controllerName = $controller . 'Controller'; 
+$controllerFile = 'app/controllers/' . $controllerName . '.php';
+
+if(file_exists($controllerFile)) {
+    require_once $controllerFile;
+    
+    // Crear instancia del controlador
+    $controllerInstance = new $controllerName();
+    
+    //Comprobamos si tiene parametros
+
+     if(!empty($parametros)){
+        if(method_exists($controllerInstance, $action)) {
+        $controllerInstance->$action($parametros);
+        }
+    } else if(method_exists($controllerInstance, $action)) {
+        $controllerInstance->$action();
+    } else {
+        die("Método $action no encontrado en $controllerName");
+    }
+} else {
+    die("Controlador $controllerName no encontrado");
+}
 ?>
