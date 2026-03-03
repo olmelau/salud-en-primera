@@ -2,7 +2,7 @@
 
     //models/loginModel
 
-    require_once '../app/config/conexionBaseDatos.php';
+    require_once '../config/conexionBaseDatos.php';
 
     class LoginModel{
 
@@ -26,9 +26,9 @@
 
             $stmt->execute();
             
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $usuario = $stmt->fetch();
 
-            return $usuario ? $usuario : null;
+            return $usuario[0];
 
         }
 
@@ -40,12 +40,12 @@
                     WHERE ur.id_user = :id_user";
             
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+            $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
             $stmt->execute();
 
             $rolname = $stmt->fetch();
 
-            return $rolname; 
+            return $rolname[0]; 
             
 
         }
