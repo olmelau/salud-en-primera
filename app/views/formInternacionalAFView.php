@@ -49,3 +49,5 @@ NIVEL MODERADO
         • 5 o más días de cualquiera de las combinaciones de caminata, actividad física moderada o vigorosa logrando como mínimo un total de 600 MET.
 NIVEL BAJO O INACTIVO
         Si no hay actividad física o si esta es insuficiente para incluirla en las categorías anteriores. -->
+
+        
