@@ -1,5 +1,5 @@
 <?php
-class controladorGeneral
+class homeController
 {
 
     public function home()
