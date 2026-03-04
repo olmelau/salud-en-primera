@@ -201,5 +201,8 @@ puerro elaborada a fuego lento con aceite de oliva
             <input type="text" id="resultado" name="resultado" readonly placeholder="Puntuación total">
         </div>
     </form>
+
+
+    <!-- HACER BOTON PARA VOLVER A LA PAGINA DE ADMIN -->
 </body>
 </html>

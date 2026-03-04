@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conexionBaseDatos.php'; // Asumiendo que tienes un archivo de conexión
+require_once '../config/conexionBaseDatos.php'; 
 
 class formValoresAntopoModel {
     private $db;
