@@ -42,7 +42,7 @@ class LoginController
                 case 'participante':
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
-                    header('index.php?controller=participante&action=mostrarPaginaParticipante');
+                    header('Location: index.php?controller=participante&action=mostrarPaginaParticipante');
                     break;
 
                 default:
