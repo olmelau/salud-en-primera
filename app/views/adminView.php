@@ -10,6 +10,9 @@ echo "<p>Autenticado: " . ($_SESSION['autenticado'] ? 'Sí' : 'No') . "</p>";
 
 <p>Bienvenido al panel de administración</p>
 
+
+
+
 <!-- Botón para cerrar sesión (GET) -->
 <a href="index.php?controller=login&action=logout">
     <button>Cerrar Sesión</button>
