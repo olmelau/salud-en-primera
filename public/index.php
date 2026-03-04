@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /*
 
 HACER UNA VISTA HOME, donde se muestra descripcion del proyecto y unas graficas o algo asi han dicho.
@@ -98,7 +98,6 @@ foreach ($_POST as $key => $value) {
 }
 
 
-
 // Construir nombre del archivo y clase
 $controllerName = $controller . 'Controller'; 
 $controllerFile = '../app/controllers/' . $controllerName . '.php';
@@ -110,7 +109,6 @@ if(file_exists($controllerFile)) {
     $controllerInstance = new $controllerName();
     
     //Comprobamos si tiene parametros
-
      if(!empty($parametros)){
         if(method_exists($controllerInstance, $action)) {
         $controllerInstance->$action($parametros);
@@ -122,5 +120,9 @@ if(file_exists($controllerFile)) {
     }
 } else {
     die("Controlador $controllerName no encontrado");
-}
+    }
+    
+   
+
+
 ?>
