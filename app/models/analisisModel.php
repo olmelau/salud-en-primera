@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conexionBaseDatos.php'; // Asumiendo que tienes un archivo de conexión
+require_once '../config/conexionBaseDatos.php'; 
 
 class analisisModel {
     private $db;
@@ -8,6 +8,9 @@ class analisisModel {
         $this->db =  ConexionBD::conexion(); // Método estático para obtener conexión
     }
 
+    /*
+    Como se tienen que mostrar los analisis solamente si se han completado, iremos llamando a metodos para comprobar, y si son ciertos, metodo para obtener los datos y un metodo imprimir de la vista.
+    */
     public function formSuenoCompletado($cod_participante){
 
         try {
@@ -23,7 +26,7 @@ class analisisModel {
             
         } catch (PDOException $e) {
             error_log("Error al verificar participante: " . $e->getMessage());
-            return false;
+            return false; //Se almacena en la siguiente ruta: C:\xampp\apache\logs
         }
 
     }

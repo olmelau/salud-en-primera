@@ -17,6 +17,7 @@ class formValoresAntopoController
         
         $mensaje = $_SESSION['mensaje'] ?? '';
         $tipo_mensaje = $_SESSION['tipo_mensaje'] ?? '';
+        //Control de errores con feedback para el usuario.
         
         
         unset($_SESSION['mensaje'], $_SESSION['tipo_mensaje']);
@@ -31,7 +32,9 @@ class formValoresAntopoController
         }
 
         session_start();
-        // Recoger datos del formulario de forma simple
+        
+        // Almacenamos los datos en un array adaptado a cada formulario.
+
         $datos = [
             'cod_participante' => $_SESSION['cod_participante'],
             'Ant1' => $_POST['Ant1'] ?? null,

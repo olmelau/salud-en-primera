@@ -17,7 +17,7 @@ class formCalidadSuenoController
         
         $mensaje = $_SESSION['mensaje'] ?? '';
         $tipo_mensaje = $_SESSION['tipo_mensaje'] ?? '';
-        
+        //Control de errores con feedback para el usuario.
         
         unset($_SESSION['mensaje'], $_SESSION['tipo_mensaje']);
         
@@ -31,7 +31,9 @@ class formCalidadSuenoController
         }
 
         session_start();
-        // Recoger datos del formulario de forma simple
+        
+        // Almacenamos los datos en un array adaptado a cada formulario.
+
         $datos = [
             'cod_participante' => $_SESSION['cod_participante'],
             'Sue1' => $_POST['Sue1'] ?? null,
@@ -69,7 +71,7 @@ class formCalidadSuenoController
         session_start();
 
 
-        if ($modelo->verificarParticipanteExiste($datos['cod_participante'])) {
+        if ($modelo->verificarParticipanteExiste($datos['cod_participante'])) { //Es obligatorio el cod_participante, si no nos da error grave.
             $_SESSION['mensaje'] = "El participante ya tiene datos registrados";
             $_SESSION['tipo_mensaje'] = "error";
         } else {
