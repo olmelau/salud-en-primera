@@ -32,7 +32,7 @@ class NuevoParticipanteController
             exit();
         }
 
-        // Recoger datos del formulario de forma simple
+        // Recoger datos en el array adaptado a este formulario.
         $datosParticipante = [
             'cod_participante' => $_POST['cod_participante'] ?? null,
             'centro_educativo' => $_POST['centro_educativo'] ?? null,
@@ -48,7 +48,6 @@ class NuevoParticipanteController
             exit();
         }
 
-        // Crear modelo y guardar
         $modelo = new NuevoParticipanteModel();
 
         session_start();

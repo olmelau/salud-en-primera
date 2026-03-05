@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conexionBaseDatos.php'; // Asumiendo que tienes un archivo de conexión
+require_once '../config/conexionBaseDatos.php'; 
 
 class formCalidadSuenoModel {
     private $db;
@@ -23,7 +23,7 @@ class formCalidadSuenoModel {
 
             $stmt = $this->db->prepare($sql);
             
-            $cod_participante = intval($datos['cod_participante']); 
+            $cod_participante = intval($datos['cod_participante']); //Al venir de Session, a veces hacia cosas raras y ha sido mejor hacer la conversion directa.
             
             $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
             $stmt->bindParam(':Sue1', $datos['Sue1'], PDO::PARAM_STR);
@@ -46,7 +46,7 @@ class formCalidadSuenoModel {
             $stmt->bindParam(':Sue8', $datos['Sue8'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue9', $datos['Sue9'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue10', $datos['Sue10'], PDO::PARAM_INT);
-            
+            //CUIDADO CON LOS TINYINT DE LA BASE DE DATOS.
             
             return $stmt->execute();
             

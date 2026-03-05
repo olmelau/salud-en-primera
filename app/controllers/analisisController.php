@@ -8,7 +8,7 @@ class analisisController
     {
         session_start();
         
-        $cod_participante = 10050;
+        $cod_participante = $_SESSION['cod_participante'];
 
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             // Si NO existe o NO es true, rediriges
@@ -18,8 +18,6 @@ class analisisController
 
         $modelo = new analisisModel();
         
-        session_start();
-
         
         require_once '../app/views/AnalisisView.php';
 
