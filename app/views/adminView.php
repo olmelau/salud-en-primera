@@ -11,11 +11,9 @@ echo "<p>Autenticado: " . ($_SESSION['autenticado'] ? 'Sí' : 'No') . "</p>";
 <p>Bienvenido al panel de administración</p>
 
 <!-- FORMULARIO -->
-
 <h3>FORMULARIOS</h3>
 
 <div class="formularios" style="display: flex; flex-direction: row; gap: 20px; justify-content: center;">
-
     <!-- VALORES ANTROPOMÓRFICOS -->
     <form action="index.php?controller=formValoresAntopo&action=imprimirFormulario" method="post">
         <button type="submit">Ir a Formulario de Valores Antropomórficos</button>
