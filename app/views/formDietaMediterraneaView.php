@@ -238,7 +238,10 @@ puerro elaborada a fuego lento con aceite de oliva
     </form>
 
 
-    <!-- HACER BOTON PARA VOLVER A LA PAGINA DE ADMIN -->
+    <!-- BOTON PARA VOLVER A LOS FORMULARIOS -->
+    <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
+        <input type="submit" value="Volver a los formularios">
+    </form>
 </body>
 
 </html>
