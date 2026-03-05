@@ -34,10 +34,15 @@ echo "<p>Autenticado: " . ($_SESSION['autenticado'] ? 'Sí' : 'No') . "</p>";
     </form>
 </div>
 
-<!-- AÑADIR USUARIO NUEVO -->
- <form action="" method="post">
-    <button type="submit">Añadir nuevo usuario</button>
- </form>
+        <!-- ANALISIS -->
+    <form action="index.php?controller=analisis&action=imprimirAnalisis" method="post">
+        <button type="submit">Analisis</button>
+    </form>
+
+    <!-- AÑADIR USUARIO NUEVO -->
+    <form action="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante" method="post">
+        <button type="submit">Añadir nuevo usuario</button>
+    </form>
 
 
 <!-- También puedes hacerlo con formulario POST -->
