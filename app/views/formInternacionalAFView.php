@@ -108,6 +108,8 @@ NIVEL BAJO O INACTIVO
         </fieldset>
         <input type="submit" value="Guardar Cuestionario" name="enviar">
     </form>
+
+    <!-- HACER BOTON PARA VOLVER A LA PAGINA DE ADMIN -->
     
    </body>
 </html>
