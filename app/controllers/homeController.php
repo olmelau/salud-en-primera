@@ -1,7 +1,8 @@
 <?php
+
+session_start();
 class homeController
 {
-
     public function home()
     {
         // Incluir la vista y pasar los datos
