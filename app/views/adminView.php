@@ -4,6 +4,7 @@
 echo "<p>Usuario ID: " . $_SESSION['id_user'] . "</p>";
 echo "<p>Rol: " . $_SESSION['rol'] . "</p>";
 echo "<p>Autenticado: " . ($_SESSION['autenticado'] ? 'Sí' : 'No') . "</p>";
+echo "<p>Cod_Participante: " . $_SESSION['cod_participante'] . "</p>";
 ?>
 
 <h1>Página principal admin</h1>

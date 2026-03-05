@@ -37,6 +37,7 @@ class LoginController
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
                     $_SESSION['autenticado'] = true;
+                    $_SESSION['cod_participante'] = $datos['cod_participante'];
                     header('Location: index.php?controller=admin&action=mostrarPaginaAdmin');
                     break;
 
@@ -44,6 +45,7 @@ class LoginController
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
                     $_SESSION['autenticado'] = true;
+                    $_SESSION['cod_participante'] = $datos['cod_participante'];
                     header('Location: index.php?controller=participante&action=mostrarPaginaParticipante');
                     break;
 

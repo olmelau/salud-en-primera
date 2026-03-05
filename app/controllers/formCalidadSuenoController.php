@@ -30,9 +30,10 @@ class formCalidadSuenoController
             exit();
         }
 
+        session_start();
         // Recoger datos del formulario de forma simple
         $datos = [
-            'cod_participante' => $_POST['cod_participante'] ?? null,
+            'cod_participante' => $_SESSION['cod_participante'],
             'Sue1' => $_POST['Sue1'] ?? null,
             'Sue2' => $_POST['Sue2'] ?? null,
             'Sue3' => $_POST['Sue3'] ?? null,

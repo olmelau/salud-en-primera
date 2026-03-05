@@ -22,14 +22,10 @@
 
         <fieldset>
             <legend>Datos del participante</legend>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" size="30">
             <label for="cod_participante">Código del participante: </label>
-            <input type="text" name="cod_participante" id="cod_participante" required><br>
+            <input type="text" name="cod_participante" value="<?php echo $_SESSION['cod_participante'] ?? ''; ?>" disabled><br><br>
             <label for="fecha">Fecha:</label>
             <input type="text" id="fecha" name="fecha" size="10">
-            <label for="edad">Edad:</label>
-            <input type="text" id="edad" name="edad" size="5"><br><br>
         </fieldset>
 
         <p><strong>Instrucciones:</strong> Las siguientes cuestiones solo tienen que ver con sus hábitos de sueño durante el último mes. En sus respuestas debe reflejar cual ha sido su comportamiento durante la mayoría de los días y noches del pasado mes. Por favor, conteste a todas las cuestiones.</p>

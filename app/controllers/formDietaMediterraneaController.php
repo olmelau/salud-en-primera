@@ -30,9 +30,10 @@ class formDietaMediterraneaController
             exit();
         }
 
+        session_start();
         // Recoger datos del formulario de forma simple
         $datos = [
-            'cod_participante' => $_POST['cod_participante'] ?? null,
+            'cod_participante' => $_SESSION['cod_participante'],
             'Ali1' => $_POST['Ali1'] ?? null,
             'Ali2' => $_POST['Ali2'] ?? null,
             'Ali3' => $_POST['Ali3'] ?? null,
