@@ -6,9 +6,8 @@ class analisisController
 {
     public function imprimirAnalisis()
     {
-
         session_start();
-
+        
         $cod_participante = 10050;
 
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
