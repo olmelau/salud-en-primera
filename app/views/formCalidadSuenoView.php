@@ -230,5 +230,11 @@
         <br>
         <input type="submit" value="Enviar">
     </form>
+
+    <!-- BOTON PARA VOLVER A LOS FORMULARIOS -->
+    <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
+        <input type="submit" value="Volver a los formularios">
+    </form>
+    
 </body>
 </html>
