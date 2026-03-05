@@ -32,7 +32,6 @@ class LoginController
             $rolname = $modelo->buscarRol($id_user);
 
             switch ($rolname) {
-
                 case 'administrador':
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
@@ -54,6 +53,11 @@ class LoginController
                     break;
             }
 
+        } else {
+            //mostrar el error de credenciales incorrectas
+            $_SESSION['error_login'] = "Usuario o contraseña incorrectos";
+            header('Location: index.php?controller=home&action=home');
+        exit();
         }
 
 
