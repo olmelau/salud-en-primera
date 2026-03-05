@@ -10,11 +10,12 @@ class LoginController
     public function procesarLogin($datos)
     {
         session_start();
+        
         //Verificamos que el envio del fromulario sea por POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             // Si alguien intenta acceder por GET, lo redirigimos al home
             header('Location: index.php?controller=home&action=home');
-            exit(); // IMPORTANTE: detener la ejecución
+            exit(); 
         }
 
         //de los datos que nos llegan por parametros, sacamos la info del usuario
@@ -36,6 +37,7 @@ class LoginController
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
                     $_SESSION['autenticado'] = true;
+                    $_SESSION['cod_participante'] = $datos['cod_participante'];
                     header('Location: index.php?controller=admin&action=mostrarPaginaAdmin');
                     break;
 
@@ -43,6 +45,7 @@ class LoginController
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;
                     $_SESSION['autenticado'] = true;
+                    $_SESSION['cod_participante'] = $datos['cod_participante'];
                     header('Location: index.php?controller=participante&action=mostrarPaginaParticipante');
                     break;
 

@@ -12,5 +12,8 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
 
+    <label for="cod_participante">Codigo de participante</label>
+    <input type="text" name="cod_participante" id="cod_participante" placeholder="00000">
+
     <button type="submit">Login</button>
 </form>
