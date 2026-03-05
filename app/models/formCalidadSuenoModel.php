@@ -23,7 +23,9 @@ class formCalidadSuenoModel {
 
             $stmt = $this->db->prepare($sql);
             
-             $stmt->bindParam(':cod_participante', $datos['cod_participante'], PDO::PARAM_INT);
+            $cod_participante = intval($datos['cod_participante']); 
+            
+            $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
             $stmt->bindParam(':Sue1', $datos['Sue1'], PDO::PARAM_STR);
             $stmt->bindParam(':Sue2', $datos['Sue2'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue3', $datos['Sue3'], PDO::PARAM_STR);

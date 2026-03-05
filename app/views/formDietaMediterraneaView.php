@@ -85,7 +85,7 @@ puerro elaborada a fuego lento con aceite de oliva
             <legend>Datos del participante</legend>
             
             <label for="cod_participante">Código del participante: </label>
-            <input type="text" name="cod_participante" id="cod_participante" required><br><br>
+            <input type="text" name="cod_participante" value="<?php echo $_SESSION['cod_participante'] ?? ''; ?>" disabled><br><br>
             
             <!-- <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha"><br><br> -->

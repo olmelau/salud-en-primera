@@ -4,11 +4,11 @@ require_once '../app/models/formValoresAntopoModel.php';
 
 class formValoresAntopoController
 {
+
     public function imprimirFormulario()
     {
 
         session_start();
-
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             // Si NO existe o NO es true, rediriges
             header('Location: index.php?controller=home&action=home');
@@ -30,9 +30,10 @@ class formValoresAntopoController
             exit();
         }
 
+        session_start();
         // Recoger datos del formulario de forma simple
         $datos = [
-            'cod_participante' => $_POST['cod_participante'] ?? null,
+            'cod_participante' => $_SESSION['cod_participante'],
             'Ant1' => $_POST['Ant1'] ?? null,
             'Ant2' => $_POST['Ant2'] ?? null,
             'Ant3' => $_POST['Ant3'] ?? null,
@@ -72,8 +73,6 @@ class formValoresAntopoController
         // Crear modelo y guardar
         $modelo = new formValoresAntopoModel();
         
-        session_start();
-
 
         if ($modelo->verificarParticipanteExiste($datos['cod_participante'])) {
             $_SESSION['mensaje'] = "El participante ya tiene datos registrados";

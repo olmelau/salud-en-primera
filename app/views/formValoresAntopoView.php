@@ -1,5 +1,4 @@
 <!-- Esto es la vista del Formulario de Valores Antropométricos -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
         
         <fieldset>    
             <label for="cod_participante">Código del participante: </label>
-            <input type="text" name="cod_participante" id="cod_participante" required><br>
+            <input type="text" name="cod_participante" value="<?php echo $_SESSION['cod_participante'] ?? ''; ?>" disabled><br>
 
             <label for="centro">Centro educativo: </label>
             <input type="text" name="centro" id="centro"><br>

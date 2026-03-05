@@ -30,9 +30,10 @@ class formInternacionalAFController
             exit();
         }
 
+        session_start();
         // Recoger datos del formulario de forma simple
         $datos = [
-            'cod_participante' => $_POST['cod_participante'] ?? null,
+            'cod_participante' => $_SESSION['cod_participante'],
             'AcF1' => $_POST['AcF1'] ?? null,
             'AcF2' => $_POST['AcF2'] ?? null,
             'AcF3' => $_POST['AcF3'] ?? null,
