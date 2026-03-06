@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis</title>
 </head>
+
+<style>
+    table{
+        border: 1px solid black;
+    }
+</style>
+
 <body>
     <h1>Analisis de los formularios completados</h1>
     
-
 <?php
 
 function imprimirAnalisisSueno($datosSueno){
