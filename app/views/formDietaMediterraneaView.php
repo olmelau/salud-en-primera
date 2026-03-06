@@ -1,60 +1,3 @@
-<!-- CUESTIONARIO DE ADHERENCIA A LA DIETA MEDITERRANEA
-
-1 ¿Usa usted el aceite de oliva como principal grasa para cocinar?
-        Si= 1 punto
-        No= 0 puntos
-2 ¿Cuánto aceite de oliva consume en total al día (incluyendo el usado para freír, el de las comidas
-fuera de casa, las ensaladas, etc.)?
-        Dos o más cucharadas = 1 punto
-        Menos de dos cucharadas = 0 puntos
-3 ¿Cuántas raciones de verdura u hortalizas consume al día (las guarniciones o acompañamientos
-contabilizan como ½ ración?
-    Dos o más a día (al menos una de ellas en ensaladas o crudas)=1 punto
-    Menos de dos raciones= 0 puntos
-4 ¿Cuántas piezas de fruta (incluyendo zumo natural) consume al día?
-    Tres o más al día=1 punto
-    Menos de tres= 0 puntos
-5 ¿Cuántas raciones de carnes rojas, hamburguesas, salchichas o embutidos consume al día (una ración
-equivale a 100-150 gr)?
-    Menos de una al día=1 punto
-    Más de una ración= 0 puntos
-6 ¿Cuántas raciones de mantequilla, margarina o nata consume al día (una porción individual
-equivale a 12 gr)?
-    Menos de una al día=1 punto
-    Más de una ración= 0 puntos
-7 ¿Cuántas bebidas carbonatadas y/o azucaradas (refrescos, colas, tónicas, bitter) consume al día?
-    Menos de una al día=1 punto
-    Más de una = 0 puntos
-8 ¿Bebe vino? ¿Cuánto consume a la semana?
-    Tres o más vasos por semana=1 punto
-    Menos de tres a la semana= 0 puntos
-9 ¿Cuántas raciones de legumbres consume a la semana (una ración o plato equivale a 150 gr)?
-    Tres o más por semana=1 punto
-    Menos de tres a la semana = 0 puntos
-10 ¿Cuántas raciones de pescado o mariscos consume a la semana (un plato, pieza o ración equivale a
-100-150 gr de pescado ó 4-5 piezas de marisco)?
-    Tres o más por semana=1 punto
-    Menos de tres a la semana = 0 puntos
-11 ¿Cuántas veces consume repostería comercial (no casera) como galletas, flanes, dulces o pasteles a la
-semana?
-    Menos de tres por semana=1 punto
-    Menos de tres a la semana = 0 puntos
-12 ¿Cuántas veces consume frutos secos a la semana (una ración equivale a 30 gr)?
-    Una o más por semana=1 punto
-    Menos de una a la semana=0 puntos
-13 ¿Consume preferentemente carne de pollo, pavo o conejo en vez de ternera, cerdo, hamburguesas o
-salchichas (carne de pollo: una pieza o ración
-equivale a 100-150 gr)?
-    Si=1 punto
-    No=0 puntos
-14 ¿Cuántas veces a la semana consume los vegetales cocinados, la pasta, el arroz u otros platos
-aderezados con una salsa de tomate, ajo, cebolla o
-puerro elaborada a fuego lento con aceite de oliva
-(sofrito)?
-    Dos o más por semana=1 punto
-    Menos de dos a la semana= 0 puntos -->
-
-<!-- RESULTADO FINAL (Total) -->
 
 
 <!DOCTYPE html>
@@ -85,7 +28,7 @@ puerro elaborada a fuego lento con aceite de oliva
             <legend>Datos del participante</legend>
             
             <label for="cod_participante">Código del participante: </label>
-            <input type="text" name="cod_participante" id="cod_participante" required><br><br>
+            <input type="text" name="cod_participante" value="<?php echo $_SESSION['cod_participante'] ?? ''; ?>" disabled><br><br>
             
             <!-- <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha"><br><br> -->

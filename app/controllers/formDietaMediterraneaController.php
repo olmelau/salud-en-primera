@@ -1,6 +1,11 @@
 <?php
 require_once '../app/models/formDietaMediterraneaModel.php';
 
+/*
+PARA VER LOS COMENTARIOS EXPLICANDO LOGICA, DECISIONES Y CONTROL DEL CODIGO.
+Mirar FormCalidadSuenoController.
+Hemos dejado solo en ese los comentarios porque era copiar y pegar en los 4 las mismas explicaciones.
+*/
 
 class formDietaMediterraneaController
 {
@@ -10,7 +15,6 @@ class formDietaMediterraneaController
         session_start();
 
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-            // Si NO existe o NO es true, rediriges
             header('Location: index.php?controller=home&action=home');
             exit();
         }
@@ -30,9 +34,9 @@ class formDietaMediterraneaController
             exit();
         }
 
-        // Recoger datos del formulario de forma simple
+        session_start();
         $datos = [
-            'cod_participante' => $_POST['cod_participante'] ?? null,
+            'cod_participante' => $_SESSION['cod_participante'],
             'Ali1' => $_POST['Ali1'] ?? null,
             'Ali2' => $_POST['Ali2'] ?? null,
             'Ali3' => $_POST['Ali3'] ?? null,
@@ -56,13 +60,12 @@ class formDietaMediterraneaController
             exit();
         }
 
-        // Crear modelo y guardar
         $modelo = new formInternacionalAFModel();
         
         session_start();
 
 
-        if ($modelo->verificarParticipanteExiste($datos['cod_participante'])) {
+        if ($modelo->verificarParticipanteExiste($datos['cod_participante'])) { 
             $_SESSION['mensaje'] = "El participante ya tiene datos registrados";
             $_SESSION['tipo_mensaje'] = "error";
         } else {

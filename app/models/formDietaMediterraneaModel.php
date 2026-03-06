@@ -7,7 +7,7 @@ class formInternacionalAFModel
 
     public function __construct()
     {
-        $this->db = ConexionBD::conexion(); // Método estático para obtener conexión
+        $this->db = ConexionBD::conexion(); 
     }
 
     public function insertarDatos($datos)
@@ -22,7 +22,9 @@ class formInternacionalAFModel
 
             $stmt = $this->db->prepare($sql);
 
-            $stmt->bindParam(':cod_participante', $datos['cod_participante'], PDO::PARAM_INT);
+            $cod_participante = intval($datos['cod_participante']); 
+            
+            $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
             $stmt->bindParam(':Ali1', $datos['Ali1'], PDO::PARAM_INT);
             $stmt->bindParam(':Ali2', $datos['Ali2'], PDO::PARAM_INT);
             $stmt->bindParam(':Ali3', $datos['Ali3'], PDO::PARAM_INT);
@@ -41,7 +43,6 @@ class formInternacionalAFModel
             return $stmt->execute();
 
         } catch (PDOException $e) {
-            // Registrar el error en un log
             error_log("Error al insertar datos actividad: " . $e->getMessage());
             return false;
         }
@@ -57,7 +58,7 @@ class formInternacionalAFModel
             if ($stmt->rowCount() > 0) {
                 return true;
             } else {
-                return false; // El participante no existe
+                return false; 
             }
 
         } catch (PDOException $e) {

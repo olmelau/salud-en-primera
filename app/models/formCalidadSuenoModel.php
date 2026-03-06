@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conexionBaseDatos.php'; // Asumiendo que tienes un archivo de conexión
+require_once '../config/conexionBaseDatos.php'; 
 
 class formCalidadSuenoModel {
     private $db;
@@ -10,7 +10,7 @@ class formCalidadSuenoModel {
 
     public function insertarDatos($datos) {
         try {
-
+            //Hay que tener mucho cuidado que el nombre de los campos sea exactamente igual que en la tabla de la base de datos.
             $sql = "INSERT INTO sueno (
                 cod_participante, Sue1, Sue2, Sue3, Sue4, Sue5a, Sue5b, Sue5c, Sue5d,
                 Sue5e, Sue5f, Sue5g, Sue5h, Sue5i, Sue5j, Sue5j_Desc, Sue6, Sue7, Sue8,
@@ -23,7 +23,10 @@ class formCalidadSuenoModel {
 
             $stmt = $this->db->prepare($sql);
             
-             $stmt->bindParam(':cod_participante', $datos['cod_participante'], PDO::PARAM_INT);
+            $cod_participante = intval($datos['cod_participante']); //Al venir de Session, a veces hacia cosas raras y ha sido mejor hacer la conversion directa.
+            
+            
+            $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
             $stmt->bindParam(':Sue1', $datos['Sue1'], PDO::PARAM_STR);
             $stmt->bindParam(':Sue2', $datos['Sue2'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue3', $datos['Sue3'], PDO::PARAM_STR);
@@ -44,12 +47,11 @@ class formCalidadSuenoModel {
             $stmt->bindParam(':Sue8', $datos['Sue8'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue9', $datos['Sue9'], PDO::PARAM_INT);
             $stmt->bindParam(':Sue10', $datos['Sue10'], PDO::PARAM_INT);
-            
+            //CUIDADO CON LOS TINYINT DE LA BASE DE DATOS.
             
             return $stmt->execute();
             
         } catch (PDOException $e) {
-            // Registrar el error en un log
             error_log("Error al insertar datos antropométricos: " . $e->getMessage());
             return false;
         }
@@ -64,7 +66,7 @@ class formCalidadSuenoModel {
             if($stmt->rowCount() > 0) {
                 return true; 
             } else {
-                return false; // El participante no existe
+                return false;
             }
             
         } catch (PDOException $e) {
