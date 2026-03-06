@@ -25,6 +25,7 @@ if (isset($_SESSION['error_login'])) {
         align-items: center;
         text-align: center;
         background-color: lightgray;
+        color: #2c3e50;
     }
 
     button {

@@ -14,6 +14,7 @@
         justify-content: center;
         align-items: center;
         background-color: lightgrey;
+        color: #2c3e50;
     }
     
     button{
