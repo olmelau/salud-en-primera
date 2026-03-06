@@ -7,7 +7,7 @@ class formValoresAntopoModel {
     
 
     public function __construct() {
-        $this->db =  ConexionBD::conexion(); // Método estático para obtener conexión
+        $this->db =  ConexionBD::conexion();
     }
 
     public function insertarDatos($datos) {
