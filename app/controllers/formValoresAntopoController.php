@@ -2,6 +2,13 @@
 require_once '../app/models/formValoresAntopoModel.php';
 
 
+/*
+PARA VER LOS COMENTARIOS EXPLICANDO LOGICA, DECISIONES Y CONTROL DEL CODIGO.
+Mirar FormCalidadSuenoController.
+Hemos dejado solo en ese los comentarios porque era copiar y pegar en los 4 las mismas explicaciones.
+*/
+
+
 class formValoresAntopoController
 {
 
@@ -10,14 +17,12 @@ class formValoresAntopoController
 
         session_start();
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-            // Si NO existe o NO es true, rediriges
             header('Location: index.php?controller=home&action=home');
             exit();
         }
         
         $mensaje = $_SESSION['mensaje'] ?? '';
         $tipo_mensaje = $_SESSION['tipo_mensaje'] ?? '';
-        //Control de errores con feedback para el usuario.
         
         
         unset($_SESSION['mensaje'], $_SESSION['tipo_mensaje']);
@@ -33,7 +38,6 @@ class formValoresAntopoController
 
         session_start();
         
-        // Almacenamos los datos en un array adaptado a cada formulario.
 
         $datos = [
             'cod_participante' => $_SESSION['cod_participante'],
@@ -73,7 +77,6 @@ class formValoresAntopoController
             exit();
         }
 
-        // Crear modelo y guardar
         $modelo = new formValoresAntopoModel();
         
 
@@ -81,7 +84,6 @@ class formValoresAntopoController
             $_SESSION['mensaje'] = "El participante ya tiene datos registrados";
             $_SESSION['tipo_mensaje'] = "error";
         } else {
-            // Si no existe, insertar los datos
             if ($modelo->insertarDatos($datos)) {
                 $_SESSION['mensaje'] = "Datos guardados correctamente";
                 $_SESSION['tipo_mensaje'] = "exito";

@@ -2,6 +2,13 @@
 
 require_once "../app/models/nuevoParticipanteModel.php";
 
+/*
+PARA VER LOS COMENTARIOS EXPLICANDO LOGICA, DECISIONES Y CONTROL DEL CODIGO.
+Mirar FormCalidadSuenoController.
+Hemos dejado solo en ese los comentarios porque era copiar y pegar en los 5 las mismas explicaciones.
+Nuevo participante se trata como un formulario como los demás, más sencillo y se inserta en otra tabla. Pero la lógica sirve la misma.
+*/
+
 class NuevoParticipanteController
 {
 
@@ -11,7 +18,6 @@ class NuevoParticipanteController
         session_start();
 
         if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-            // Si NO existe o NO es true, rediriges
             header('Location: index.php?controller=home&action=home');
             exit();
         }
@@ -32,7 +38,6 @@ class NuevoParticipanteController
             exit();
         }
 
-        // Recoger datos en el array adaptado a este formulario.
         $datosParticipante = [
             'cod_participante' => $_POST['cod_participante'] ?? null,
             'centro_educativo' => $_POST['centro_educativo'] ?? null,
@@ -57,7 +62,6 @@ class NuevoParticipanteController
             $_SESSION['mensaje'] = "El participante ya tiene datos registrados";
             $_SESSION['tipo_mensaje'] = "error";
         } else {
-            // Si no existe, insertar los datos
             if ($modelo->insertarNuevoParticipante($datosParticipante)) {
                 $_SESSION['mensaje'] = "Datos guardados correctamente";
                 $_SESSION['tipo_mensaje'] = "exito";
