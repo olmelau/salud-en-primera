@@ -30,7 +30,6 @@ class NuevoParticipanteModel
             return true;
             
         } catch (PDOException $e) {
-            // Registrar el error en un log
             error_log("Error al insertar nuevo participante: " . $e->getMessage());
             return false;
         }
@@ -46,7 +45,7 @@ class NuevoParticipanteModel
             if($stmt->rowCount() > 0) {
                 return true; 
             } else {
-                return false; // El participante no existe
+                return false;
             }
             
         } catch (PDOException $e) {

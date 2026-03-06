@@ -11,14 +11,16 @@ class analisisModel {
     /*
     Como se tienen que mostrar los analisis solamente si se han completado, iremos llamando a metodos para comprobar, y si son ciertos, metodo para obtener los datos y un metodo imprimir de la vista.
     */
+
+    //Siempre nos llegara el cod_participante para cualquier metodo de analisis.
     public function formSuenoCompletado($cod_participante){
 
         try {
             $sql = "SELECT cod_participante FROM sueno WHERE cod_participante = :cod_participante";
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
+            $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT); //Siempre debe ser INT.
             $stmt->execute();
-            if($stmt->rowCount() > 0) {
+            if($stmt->rowCount() > 0) { //Teniamos otra lógica distinta para el return pero nos daba problemas y acabamos usando el rowcount.
                 return true; 
             } else {
                 return false; 
@@ -32,6 +34,7 @@ class analisisModel {
     }
 
     public function formAntopoCompletado($cod_participante){
+        //Misma lógica que para Sueño.
         try {
             $sql = "SELECT cod_participante FROM antropometrico WHERE cod_participante = :cod_participante";
             $stmt = $this->db->prepare($sql);
@@ -50,6 +53,7 @@ class analisisModel {
     }
 
     public function formDietaCompletado($cod_participante){
+        //Misma lógica que para Sueño.
         try {
             $sql = "SELECT cod_participante FROM alimentacion WHERE cod_participante = :cod_participante";
             $stmt = $this->db->prepare($sql);
@@ -68,6 +72,7 @@ class analisisModel {
     }
 
     public function formFisicaCompletado($cod_participante){
+        //Misma lógica que para Sueño.
         try {
             $sql = "SELECT cod_participante FROM actividad WHERE cod_participante = :cod_participante";
             $stmt = $this->db->prepare($sql);
@@ -85,7 +90,7 @@ class analisisModel {
         }
     }
 
-    public function recogerDatosSueno($cod_participante){
+    public function recogerDatosSueno($cod_participante){ 
         try {
             $sql = "SELECT * FROM sueno WHERE cod_participante = :cod_participante";
             $stmt = $this->db->prepare($sql);
@@ -93,7 +98,8 @@ class analisisModel {
             
             $stmt->execute();
 
-            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            //Al querer devolver un array (Aunque sea solo una fila) hacemos el fetch Assoc, para recorrerlo posteriormente mejor en el view. 
             return $resultado;
             
         } catch (PDOException $e) {

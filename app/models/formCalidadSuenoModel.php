@@ -10,7 +10,7 @@ class formCalidadSuenoModel {
 
     public function insertarDatos($datos) {
         try {
-
+            //Hay que tener mucho cuidado que el nombre de los campos sea exactamente igual que en la tabla de la base de datos.
             $sql = "INSERT INTO sueno (
                 cod_participante, Sue1, Sue2, Sue3, Sue4, Sue5a, Sue5b, Sue5c, Sue5d,
                 Sue5e, Sue5f, Sue5g, Sue5h, Sue5i, Sue5j, Sue5j_Desc, Sue6, Sue7, Sue8,
@@ -24,6 +24,7 @@ class formCalidadSuenoModel {
             $stmt = $this->db->prepare($sql);
             
             $cod_participante = intval($datos['cod_participante']); //Al venir de Session, a veces hacia cosas raras y ha sido mejor hacer la conversion directa.
+            
             
             $stmt->bindParam(':cod_participante', $cod_participante, PDO::PARAM_INT);
             $stmt->bindParam(':Sue1', $datos['Sue1'], PDO::PARAM_STR);
@@ -51,7 +52,6 @@ class formCalidadSuenoModel {
             return $stmt->execute();
             
         } catch (PDOException $e) {
-            // Registrar el error en un log
             error_log("Error al insertar datos antropométricos: " . $e->getMessage());
             return false;
         }
@@ -66,7 +66,7 @@ class formCalidadSuenoModel {
             if($stmt->rowCount() > 0) {
                 return true; 
             } else {
-                return false; // El participante no existe
+                return false;
             }
             
         } catch (PDOException $e) {
