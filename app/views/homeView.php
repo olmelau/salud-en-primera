@@ -40,9 +40,7 @@ if (isset($_SESSION['error_login'])) {
         /* width: 500px; */
         margin-bottom: 30px;
         padding: 20px;
-        background-color: whitesmoke;
-        
-        
+        background-color: whitesmoke;        
     }
 
     .error {

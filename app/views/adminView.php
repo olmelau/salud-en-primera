@@ -89,7 +89,7 @@
 
             <!-- DIETA MEDITERRANEA -->
             <form action="index.php?controller=formDietaMediterranea&action=imprimirFormulario" method="post">
-                <button type="submit">Dieta Mediterranea</button>
+                <button type="submit">Dieta Mediterránea</button>
             </form>
             <!-- INTERNACIONAL AF -->
             <form action="index.php?controller=formInternacionalAF&action=imprimirFormulario" method="post">
