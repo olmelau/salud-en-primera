@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis</title>
+    <script src="../frontend/js/d3.v7.min.js"></script>
+    <script src="../frontend/js/script.js" defer></script>
 </head>
 
 <style>
@@ -109,40 +111,74 @@
 
 <body>
     <h1>Análisis de los formularios completados</h1>
-    
-    
-<?php
 
+
+<?php
 function imprimirAnalisisSueno($datosSueno){
-    if (empty($datosSueno)) return;
+    // Debug: Ver qué datos llegan
+    error_log("Datos de sueño recibidos: " . print_r($datosSueno, true));
     
-    // Obtener los nombres de las columnas del primer elemento
-    $columnas = array_keys($datosSueno[0]);
+    $datosImprimir = array();
     
-    echo "<div class='tabla-container'>";
-    echo "<div class='tabla-titulo'>Análisis de Sueño</div>";
-    echo "<table>";
-    
-    // Mostrar encabezados de columnas
-    echo "<tr>";
-    foreach ($columnas as $columna) {
-        // Formatear el nombre de la columna (reemplazar guiones bajos por espacios y capitalizar)
-        $nombreFormateado = ucwords(str_replace('_', ' ', $columna));
-        echo "<th>" . $nombreFormateado . "</th>";
-    }
-    echo "</tr>";
-    
-    // Mostrar datos
-    foreach ($datosSueno as $fila){
-        echo "<tr>";
-        foreach ($fila as $celda){
-            echo "<td>" . $celda . "</td>";
+    if (!empty($datosSueno) && isset($datosSueno[0])) {
+        $fila = $datosSueno[0]; // Solo hay una fila por participante
+        
+        // Opción 1: Si quieres mostrar las horas dormidas (Sue4)
+        if (isset($fila['Sue4']) && $fila['Sue4'] !== null) {
+            $datosImprimir[] = (float)$fila['Sue4'];
         }
-        echo "</tr>";
+        
+        // Opción 2: Si quieres mostrar todos los valores de frecuencia (0-3)
+        $campos_frecuencia = [
+            'Sue5a', 'Sue5b', 'Sue5c', 'Sue5d', 'Sue5e', 
+            'Sue5f', 'Sue5g', 'Sue5h', 'Sue5i', 'Sue5j'
+        ];
+        
+        foreach ($campos_frecuencia as $campo) {
+            if (isset($fila[$campo]) && $fila[$campo] !== null) {
+                $datosImprimir[] = (int)$fila[$campo];
+            }
+        }
+        
+        // También puedes añadir otros campos numéricos
+        $otros_campos = ['Sue2', 'Sue6', 'Sue7', 'Sue8', 'Sue9', 'Sue10'];
+        foreach ($otros_campos as $campo) {
+            if (isset($fila[$campo]) && $fila[$campo] !== null) {
+                $datosImprimir[] = (int)$fila[$campo];
+            }
+        }
     }
-    echo "</table>";
-    echo "</div>";
+    
+    // Debug: Ver datos extraídos
+    error_log("Datos para histograma: " . print_r($datosImprimir, true));
+    
+    ?>
+    <div id="histograma_generado"></div>
+    
+    <script>
+    // Pasar datos de PHP a JavaScript
+    const datosSueno = <?php echo json_encode($datosImprimir); ?>;
+    
+    console.log('Datos recibidos en JavaScript:', datosSueno);
+    
+    // Esperar a que el DOM esté listo y D3 cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        if (datosSueno && datosSueno.length > 0) {
+            console.log('Creando histograma con', datosSueno.length, 'datos');
+            crearHistograma(datosSueno);
+        } else {
+            console.warn('No hay datos válidos para el histograma');
+            document.getElementById('histograma_generado').innerHTML = 
+                '<p class="alert alert-warning">No hay datos suficientes para generar el histograma de sueño.</p>';
+        }
+    });
+    </script>
+    <?php
 }
+?>
+    
+
+<?php
 
 function imprimirAnalisisAntopo($datosAntopo){
     if (empty($datosAntopo)) return;
