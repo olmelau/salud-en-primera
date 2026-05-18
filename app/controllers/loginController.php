@@ -34,6 +34,7 @@ class LoginController
             $rolname = $modelo->buscarRol($id_user); //Para saber si es participante solo o admin.
 
             switch ($rolname) {
+                
                 case 'administrador':
                     $_SESSION['rol'] = $rolname;
                     $_SESSION['id_user'] = $id_user;

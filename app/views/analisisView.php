@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../frontend/js/d3.v7.min.js"></script>
+    <script src="../frontend/js/script.js" defer></script>
     <title>Análisis</title>
 </head>
 
@@ -109,8 +111,7 @@
 
 <body>
     <h1>Análisis de los formularios completados</h1>
-    
-    
+
 <?php
 
 function imprimirAnalisisSueno($datosSueno){
