@@ -29,16 +29,16 @@ function mostrarGraficasIMC($datosGraficas)
         </header>
         <div class="main-container">
 
-            <div class="grafica-wraper">
+            <div class="grafica-wrapper">
                 <div id="grafica-familia-imc"></div>
             </div>
-            <div class="grafica-wraper">
+            <div class="grafica-wrapper">
                 <div id="grafica-sexo-imc"></div>
             </div>
-            <div class="grafica-wraper">
+            <div class="grafica-wrapper">
                 <div id="grafica-centro-imc"></div>
             </div>
-            <div class="grafica-wraper">
+            <div class="grafica-wrapper">
                 <div id="grafica-familia-imc-puntos"></div>
             </div>
 
