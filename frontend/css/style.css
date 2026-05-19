@@ -33,10 +33,15 @@
         flex-direction: row;
     }
     .logo-salud{
-        width: 30vh;
+        width: 20vh;
     }
 
     /* CONTENEDOR MAIN CON LAS GRAFICAS PUBLICAS */
     .main-container{
-      
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        padding-right: 5%;
+        padding-left: 5%;
     }
