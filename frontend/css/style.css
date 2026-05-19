@@ -8,103 +8,35 @@
 
         --boton-completado: #5ee49f;
         --boton-sin-completar: #e45e5e;
+
+        --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    /* AJUSTES GENERALES */
+    *{
+        
+        font-family: var(--fuente-principal);
     }
-
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-    }
-
-    body {
-       background-color: var(--background-color);
-        padding: 20px;
+    h1{
         color: var(--texto-principal);
     }
 
-    h1 {
-        color: var(--texto-principal);
-        text-align: center;
-        margin-bottom: 30px;
-        padding-bottom: 10px;
-        border-bottom: 3px solid var(--primary-color);
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    /* Título de cada tabla */
-    .tabla-titulo {
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        color: white;
-        padding: 12px 15px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 8px 8px 0 0;
-        width: 100%;
-        margin-top: 20px;
+    .menu-container{
+        display: flex;
+        flex-direction: row;
+    }
+    .logo-salud{
+        width: 30vh;
     }
 
-    /* Contenedor principal de cada tabla */
-    .tabla-contenedor {
-        width: 100%;
-        margin-bottom: 30px;
-        background-color: white;
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        overflow: hidden; 
-    }
-
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        table-layout: auto;
-    }
-
-    /* Estilo para los encabezados */
-    table thead th {
-        color: white;
-        font-weight: bold;
-        padding: 12px 15px;
-        font-size: 12px;
-        text-transform: uppercase;
-        border: 1px solid #34495e;
-        text-align: left;
-        white-space: nowrap;
-        top: 0;
-        z-index: 10;
-    }
-
-    /* Estilo para las celdas de datos (DENTRO del scroll) */
-    table tbody td {
-        border: 1px solid #ddd;
-        padding: 10px 15px;
-        text-align: left;
-        white-space: nowrap;
-    }
-
-    table tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-    }
-
-   
-
-    /* Estilos para el botón */
-    .boton-volver {
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    button{
-        border-radius: 10px;
-        height: 60px;
-        width: 120px;
+    /* CONTENEDOR MAIN CON LAS GRAFICAS PUBLICAS */
+    .main-container{
+      
     }

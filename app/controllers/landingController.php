@@ -31,8 +31,8 @@ class landingController
         $datosGraficas['familia_imc_valor'] = $modelo->getFamiliaProfesionalIMCValor();
         
         // Cargar la nueva vista específica
-        require_once '../app/views/GraficasIMCView.php';
-        // mostrarGraficasIMC($datosGraficas);
+        require_once '../app/views/landingView.php';
+        mostrarGraficasIMC($datosGraficas);
     }
 
     
