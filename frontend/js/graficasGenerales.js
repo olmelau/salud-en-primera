@@ -7,7 +7,7 @@ function crearGraficaCategorica(contenedorId, datos, campoCategoria, campoSubcat
     
     // Configuración de dimensiones
     const margin = { top: 60, right: 150, bottom: 80, left: 70 };
-    const width = 40 - margin.left - margin.right;
+    const width = 900 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
     
     // Crear SVG
