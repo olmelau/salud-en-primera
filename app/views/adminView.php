@@ -24,38 +24,52 @@
     </header>
 
     <main>
-
         <!-- FORMULARIO -->
-        <h3>FORMULARIOS</h3>
-        <div class="botones-formularios">
-            <!-- VALORES ANTROPOMÓRFICOS -->
-            <button><a href="index.php?controller=formValoresAntopo&action=imprimirFormulario">Valores
-                    Antropomórficos</a></button>
+        <div class="formularios-container">
 
-            <!-- CALIDAD DEL SUEÑO -->
-            <button><a href="index.php?controller=formCalidadSueno&action=imprimirFormulario">Calidad Sueño</a></button>
+            <h3>FORMULARIOS</h3>
 
-            <!-- DIETA MEDITERRANEA -->
-            <button><a href="index.php?controller=formDietaMediterranea&action=imprimirFormulario">Dieta
-                    Mediterránea</a></button>
+            <div class="botones-formularios">
+                <!-- VALORES ANTROPOMÓRFICOS -->
+                <form action="index.php?controller=formValoresAntopo&action=imprimirFormulario" method="post">
+                    <button type="submit">Valores Antropomórficos</button>
+                </form>
+                
 
-            <!-- INTERNACIONAL AF -->
-            <button><a href="index.php?controller=formInternacionalAF&action=imprimirFormulario">Actividad
-                    Física</a></button>
+                <!-- CALIDAD DEL SUEÑO -->
+                <form action="index.php?controller=formCalidadSueno&action=imprimirFormulario" method="post">
+                    <button type="submit">Calidad del sueño</button>
+                </form>
+
+                <!-- DIETA MEDITERRANEA -->
+                <form action="index.php?controller=formDietaMediterranea&action=imprimirFormulario" method="post">
+                    <button type="submit">Dieta Mediterránea</button>
+                </form>
+                <!-- INTERNACIONAL AF -->
+                <form action="index.php?controller=formInternacionalAF&action=imprimirFormulario" method="post">
+                    <button type="submit">Actividad Física</button>
+                </form>
+            </div>
         </div>
 
         <h3>ANÁLISIS DE RESULTADOS</h3>
         <div class="analisis-container">
             <!-- ANALISIS -->
-            <button><a href="index.php?controller=analisis&action=imprimirAnalisis">Análisis</a></button>
+            <form action="index.php?controller=analisis&action=imprimirAnalisis" method="post">
+                <button type="submit">Analisis</button>
+            </form>
 
         </div>
-        <h3>MÁS OPCIONES</h3>
         <!-- OPCIONES DE ADMINISTRADOR -->
+        <h3>MÁS OPCIONES</h3>
         <div class="opt-admin">
-            <button><a href="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante">Nuevo
-                    Usuario</a></button>
-            <button><a href="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante">                    Borrar Datos</a></button>
+
+
+            <form action="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante" method="post">
+                <button type="submit" class="btn_nuevo_user">Datos Participante</button>
+            </form>
+            
+
         </div>
 
     </main>

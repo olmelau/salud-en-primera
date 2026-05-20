@@ -1,0 +1,33 @@
+*{
+    margin: 1vh;
+}
+
+.header-form{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   /* gap: 20vh; */
+
+}
+
+p,
+legend
+{
+    font-weight: bold;
+}
+
+
+.btn-enviar-form,
+.btn-volver{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+button{
+    height: 10vh;
+    width: 30vh;
+}
