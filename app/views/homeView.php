@@ -15,63 +15,54 @@ if (isset($_SESSION['error_login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../frontend/css/style.css">
+    <link rel="stylesheet" href="../frontend/css/style-login.css">
     <title>Salud en primera</title>
 </head>
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: lightgray;
-        color: #2c3e50;
-    }
-
-    button {
-        background-color: lightgreen;
-        color: black;
-        border-radius: 10px;
-        height: 50px;
-        width: 100px;
-    }
-    .formularios_container {
-        border-radius: 10px;
-        /* width: 500px; */
-        margin-bottom: 30px;
-        padding: 20px;
-        background-color: whitesmoke;        
-    }
-
-    .error {
-        background-color: red;
-        color: white;
-    }
-</style>
 
 <body>
+    <header>
+        <div class="header">
+            <img src="../public/assets/Logo.png" class="logo-salud">
+            <h1 class="titulo-main">SALUD EN PRIMERA PERSONA</h1>
+            <nav class="menu-container">
+                <ul class="menu-item"><a href="index.php?controller=landing&action=landing">Inicio</a></ul>
+                <ul class="menu-item"><a href="index.php?controller=home&action=home">Log in</a></ul>
+            </nav>
+        </div>
+    </header>
+    <main>
 
-    <div class="titulo">
-        <h1>SALUD EN PRIMERA</h1>
-    </div>
-
-    <div class="formularios_container">
-        <form action="index.php" method="post">
-            <input type="hidden" name="controller" value="login">
-            <input type="hidden" name="action" value="procesarLogin">
-
-            <label for="nombre">Nombre</label>
-            <input type="text" name="usuario" id="nombre">
-
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <br><br>
-            <label for="cod_participante">Código de participante</label>
-            <input type="text" name="cod_participante" id="cod_participante" placeholder="00000" required>
-            <br><br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
+   
+    <form action="index.php" method="post">
+    <div class="login-container">
+       
+                <input type="hidden" name="controller" value="login">
+                <input type="hidden" name="action" value="procesarLogin">
+    
+                <label for="nombre">Nombre</label>
+                <input type="text" name="usuario" id="nombre">
+    
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                
+                <label for="cod_participante">Código de participante</label>
+                <input type="text" name="cod_participante" id="cod_participante" placeholder="00000" required>   
+                <button type="submit">Login</button>
+          
+        </div>
+    </form>
+     </main>
+    <footer>
+        <div class="footer-container">
+            <div class="item-footer"><img src="../public/assets/es_cofinanciado_logo_peqqueno.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/FP_CLM.jpg" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/JCCM.png" alt=""></div>
+            <div class="item-footer"><img src="..public/assets/Ministerio Educaciขn.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/Logo Hervás.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/logo_rehecho_fondo_blanco.png" alt=""></div>
+        </div>
+    </footer>
 </body>
 
 </html>
