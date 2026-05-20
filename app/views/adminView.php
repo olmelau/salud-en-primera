@@ -4,123 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../frontend/js/d3.v7.min.js"></script>
+    <script src="../frontend/js/graficasGenerales.js" defer></script>
+    <link rel="stylesheet" href="../frontend/css/style.css">
     <title>Panel Admin</title>
 </head>
 
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: lightgrey;
-        color: #2c3e50;
-    }
-    
-    button{
-        border-radius: 10px;
-        height: 60px;
-        width: 120px;
-    }
-
-    div{
-        width: 600px;
-    }
-    
-    .formularios_container {
-        border-radius: 10px;
-        /* width: 500px; */
-        margin-bottom: 30px;
-        padding: 20px;
-        background-color: whitesmoke;
-        
-        
-    }
-    .analisis_container {
-        /* margin: 30px; */
-        border-radius: 10px;
-        /* width: 600px; */
-        padding: 20px;
-        margin-bottom: 30px;
-        background-color: whitesmoke;
-    }
-    
-    .opt_admin {
-        display:inline-flex;
-        border-radius: 10px;
-        /* width: 500px; */
-        margin-bottom: 30px;
-        gap: 30px;
-        padding: 20px;
-        background-color: whitesmoke;
-    }
-
-    .btn_cerrar_sesion{
-        background-color: lightcoral;
-        color: white;
-
-    }
-    .btn_nuevo_user{
-        background-color: lightgreen;
-        
-    }
-</style>
-
 <body>
+    <header>
+        <div class="header">
+            <img src="../public/assets/Logo.png" class="logo-salud">
+            <h1 class="titulo-main">PANEL ADMIN</h1>
+            <nav class="menu-container">
+                <ul class="menu-item"><a href="index.php?controller=landing&action=landing">Inicio</a></ul>
+                <ul class="menu-item"><a href="index.php?controller=home&action=home">Log in</a></ul>
+                <ul class="menu-item"><a href="index.php?controller=login&action=logout">Log out</a></ul>
+            </nav>
+        </div>
+    </header>
 
-    <h1>PANEL ADMIN</h1>
+    <main>
 
-    <!-- FORMULARIO -->
-
-    <div class="formularios_container">
-
+        <!-- FORMULARIO -->
         <h3>FORMULARIOS</h3>
-
-        <div class="formularios" style="display: flex; flex-direction: row; gap: 20px; justify-content: center;">
+        <div class="botones-formularios">
             <!-- VALORES ANTROPOMÓRFICOS -->
-            <form action="index.php?controller=formValoresAntopo&action=imprimirFormulario" method="post">
-                <button type="submit">Valores Antropomórficos</button>
-            </form>
+            <button><a href="index.php?controller=formValoresAntopo&action=imprimirFormulario">Valores
+                    Antropomórficos</a></button>
 
             <!-- CALIDAD DEL SUEÑO -->
-            <form action="index.php?controller=formCalidadSueno&action=imprimirFormulario" method="post">
-                <button type="submit">Calidad del sueño</button>
-            </form>
+            <button><a href="index.php?controller=formCalidadSueno&action=imprimirFormulario">Calidad Sueño</a></button>
 
             <!-- DIETA MEDITERRANEA -->
-            <form action="index.php?controller=formDietaMediterranea&action=imprimirFormulario" method="post">
-                <button type="submit">Dieta Mediterránea</button>
-            </form>
+            <button><a href="index.php?controller=formDietaMediterranea&action=imprimirFormulario">Dieta
+                    Mediterránea</a></button>
+
             <!-- INTERNACIONAL AF -->
-            <form action="index.php?controller=formInternacionalAF&action=imprimirFormulario" method="post">
-                <button type="submit">Internacional Actividad Física</button>
-            </form>
+            <button><a href="index.php?controller=formInternacionalAF&action=imprimirFormulario">Actividad
+                    Física</a></button>
         </div>
-    </div>
 
-    <div class="analisis_container">
         <h3>ANÁLISIS DE RESULTADOS</h3>
-        <!-- ANALISIS -->
-        <form action="index.php?controller=analisis&action=imprimirAnalisis" method="post">
-            <button type="submit">Analisis</button>
-        </form>
+        <div class="analisis-container">
+            <!-- ANALISIS -->
+            <button><a href="index.php?controller=analisis&action=imprimirAnalisis">Análisis</a></button>
 
-    </div>
-
-    <!-- OPCIONES DE ADMINISTRADOR -->
-    <div class="opt_admin">
-
+        </div>
         <h3>MÁS OPCIONES</h3>
+        <!-- OPCIONES DE ADMINISTRADOR -->
+        <div class="opt-admin">
+            <button><a href="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante">Nuevo
+                    Usuario</a></button>
+            <button><a href="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante">                    Borrar Datos</a></button>
+        </div>
 
-        <form action="index.php?controller=nuevoParticipante&action=imprimirNuevoParticipante" method="post">
-            <button type="submit" class="btn_nuevo_user">Añadir nuevo usuario</button>
-        </form>
-        <br>
-        <form method="POST" action="index.php?controller=login&action=logout">
-            <button type="submit" class="btn_cerrar_sesion">Cerrar Sesión</button>
-        </form>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="item-footer"><img src="../public/assets/es_cofinanciado_logo_peqqueno.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/FP_CLM.jpg" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/JCCM.png" alt=""></div>
+            <div class="item-footer"><img src="..public/assets/Ministerio Educaciขn.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/Logo Hervás.png" alt=""></div>
+            <div class="item-footer"><img src="../public/assets/logo_rehecho_fondo_blanco.png" alt=""></div>
+        </div>
+    </footer>
 
-    </div>
 
 
 </body>

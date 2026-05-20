@@ -15,37 +15,42 @@
 * {
 
     font-family: var(--fuente-principal);
+    text-decoration: none;
 }
 
 body {
     background-color: var(--background-color);
-    height: 100%;
-    /* margin: 0; */
-}
-
-h1 {
     color: var(--texto-principal);
 }
 
-main{
-
+h1,
+h3 {
+    color: var(--texto-principal);
+    text-align: center;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+button{
+    height: 15vh;
+    width:25vh;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Altura mínima del viewport */
+    min-height: 100vh;
 }
 
 main {
-    flex: 1; /* Esto hace que el main ocupe el espacio disponible */
+    flex: 1;
 }
+
 /* HEADER */
 
 .header {
@@ -59,7 +64,7 @@ main {
 .menu-container {
     display: flex;
     flex-direction: row;
-   }
+}
 
 .logo-salud {
     width: 20vh;
@@ -73,10 +78,39 @@ main {
     align-items: center;
     padding-right: 5%;
     padding-left: 5%;
-   
 
 }
 
+/* FORMULARIOS */
+/* FORMULARIOS PAGINA ADMIN */
+.botones-formularios button{
+ 
+
+
+}   
+
+/* BOTONES */
+/* BOTON LOGIN */
+.btn-login{
+    height: 5vh;
+    width: 22vh;
+    background-color: var(--secondary-color);
+    color: var(--texto-principal);
+}
+
+.btn-login:hover{
+    color: var(--background-color);
+    background-color: var(--primary-color);
+
+}
+.botones-formularios,
+.analisis-container,
+.opt-admin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4vh;
+}
 
 /* FOOTER */
 
