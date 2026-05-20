@@ -41,14 +41,14 @@ if (isset($_SESSION['error_login'])) {
                 <input type="hidden" name="action" value="procesarLogin">
     
                 <label for="nombre">Nombre</label>
-                <input type="text" name="usuario" id="nombre">
+                <input type="text" name="usuario" id="nombre" value="Marco">
     
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" value="marco1234">
                 
                 <label for="cod_participante">Código de participante</label>
-                <input type="text" name="cod_participante" id="cod_participante" placeholder="00000" required>   
-                <button type="submit">Login</button>
+                <input type="text" name="cod_participante" id="cod_participante" placeholder="00000" value="10026" required>   
+                <button class="btn-login" type="submit">Login</button>
           
         </div>
     </form>

@@ -29,7 +29,6 @@ function mostrarGraficasIMC($datosGraficas)
         </header>
         <main>
             <div class="main-container">
-
                 <div class="grafica-wrapper">
                     <div id="grafica-familia-imc"></div>
                 </div>

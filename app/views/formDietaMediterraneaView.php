@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../frontend/css/style.css">
+    <link rel="stylesheet" href="../frontend/css/style-formulario.css">
     <title>Cuestionario de Adherencia a la Dieta Mediterranea</title>
 </head>
 
@@ -13,7 +15,7 @@
 
     <?php if (isset($mensaje)): ?>
         <div
-            style="color: <?php echo $tipo_mensaje == 'exito' ? 'green' : 'red'; ?>; padding: 10px; margin: 10px 0; border: 1px solid;">
+           <?php echo $tipo_mensaje == 'exito' ? 'green' : 'red'; ?>>
             <?php echo $mensaje; ?>
         </div>
     <?php endif; ?>
@@ -177,13 +179,19 @@
             <!-- <input type="text" id="resultado" name="resultado" readonly placeholder="Puntuación total"> -->
         </div>
 
-        <input type="submit" value="Guardar Cuestionario" name="enviar">
+        <div class="btn-enviar-form">
+                <button type="submit">Enviar</button>
+
+            </div>
     </form>
 
 
     <!-- BOTON PARA VOLVER A LOS FORMULARIOS -->
     <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
-        <input type="submit" value="Volver a los formularios">
+        <div class="btn-volver">
+                <button type="submit">Volver a los formularios</button>
+
+            </div>
     </form>
 </body>
 
