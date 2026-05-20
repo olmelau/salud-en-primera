@@ -8,7 +8,62 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../frontend/js/d3.v7.min.js"></script>
     <script src="../frontend/js/graficasGenerales.js" defer></script>
+    <link rel="stylesheet" href="../frontend/css/style.css">
     <title>Análisis Completo de Salud</title>
+    <style>
+
+    grafica-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-around;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .grafica-wrapper {
+        width: 100%;
+    }
+
+    .grafica-wrapper svg {
+        width: 100%;
+        height: auto;
+    }
+
+    .seccion-titulo h2 {
+        font-size: 1.5em;
+        color: var(--texto-principal);
+    }
+
+    .no-datos {
+        text-align: center;
+        padding: 20px;
+        color: var(--boton-sin-completar);
+        font-family: var(--fuente-principal);
+    }
+
+    button{
+        padding-left: 10vh;
+        padding-right: 10vh;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        border-radius: 3vh; 
+        border: 2px grey solid;
+        font-weight: bold;
+        background-color: rgb(177, 213, 247);
+    }
+
+    button:hover{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: rgb(123, 189, 252);
+    }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,28 +71,24 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <div class="header">
             <h1>📊 Análisis Integral de Salud</h1>
         </div>
-
+        
+        <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
+            <button type="submit">Volver Atras</button>
+        </form>
+        
         <!-- ============================================ -->
         <!-- SECCIÓN 1: RIESGO CARDIOMETABÓLICO Y CARDIOVASCULAR -->
         <!-- ============================================ -->
+
         <div class="seccion-titulo">
             <h2>🔴 Riesgo Cardiometabólico y Cardiovascular</h2>
         </div>
 
-        <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
-                <button type="submit">Volver Atras</button>
-        </form>
-
         <!-- 5. Familia profesional vs ICA -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">📈</span>
-                5. Riesgo Cardiometabólico: Familia Profesional vs Índice Cintura-Altura (ICA)
+                5. Familia Profesional vs Índice Cintura-Altura (ICA)
             </h2>
-            <p class="descripcion">
-                Distribución del ICA por familia profesional. Un ICA ≥ 0.5 indica riesgo cardiometabólico elevado.
-                Permite identificar qué familias profesionales presentan mayor riesgo.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-familia-ica"></div>
             </div>
@@ -46,13 +97,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 6. Centro educativo vs ICA -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">📈</span>
                 6. Riesgo Cardiometabólico: Centro Educativo vs ICA
             </h2>
-            <p class="descripcion">
-                Distribución del ICA por centro educativo. Permite identificar centros con mayor prevalencia 
-                de riesgo cardiometabólico entre sus estudiantes.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-centro-ica"></div>
             </div>
@@ -61,13 +107,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 7. Sexo vs ICC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">📈</span>
-                7. Alteraciones Cardiovasculares: Sexo vs Índice Cintura-Cadera (ICC)
+                7. Sexo vs Índice Cintura-Cadera (ICC)
             </h2>
-            <p class="descripcion">
-                Riesgo cardiovascular según ICC. Valores de referencia: Hombres ≥ 0.9 (riesgo alto), 
-                Mujeres ≥ 0.85 (riesgo alto). Permite comparar la distribución de riesgo entre sexos.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sexo-icc"></div>
             </div>
@@ -83,13 +124,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 8. Grasa corporal vs IMC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🔵</span>
                 8. Grasa Corporal Total vs IMC
             </h2>
-            <p class="descripcion">
-                Relación entre el porcentaje de grasa corporal total y el IMC. Cada punto representa un participante,
-                coloreado según su clasificación de IMC. Permite visualizar la correlación entre ambas medidas.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-grasa-imc"></div>
             </div>
@@ -98,13 +134,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 9. Dieta Mediterránea vs IMC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🔵</span>
                 9. Adherencia a la Dieta Mediterránea vs IMC
             </h2>
-            <p class="descripcion">
-                Relación entre la puntuación del cuestionario de adherencia a la dieta mediterránea (0-14 puntos) 
-                y el IMC. Una mayor puntuación indica mejor adherencia a la dieta mediterránea.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-imc"></div>
             </div>
@@ -113,13 +144,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 10. Dieta mediterránea vs Grasa corporal -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🔵</span>
                 10. Dieta Mediterránea vs Grasa Corporal Total
             </h2>
-            <p class="descripcion">
-                Relación entre la adherencia a la dieta mediterránea y el porcentaje de grasa corporal.
-                Permite evaluar si una mejor alimentación se asocia con menor grasa corporal.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-grasa"></div>
             </div>
@@ -128,13 +154,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 11. Dieta mediterránea vs Masa muscular -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🔵</span>
                 11. Dieta Mediterránea vs Masa Muscular Total
             </h2>
-            <p class="descripcion">
-                Relación entre la adherencia a la dieta mediterránea y el porcentaje de masa muscular.
-                Evalúa el impacto de la alimentación en la composición muscular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-muscular"></div>
             </div>
@@ -150,13 +171,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 12. Actividad física vs IMC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟢</span>
                 12. Actividad Física (IPAQ) vs IMC
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física (calculado según IPAQ) y el IMC. 
-                Los niveles se clasifican en Bajo, Moderado y Alto según los MET-minutos/semana.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-imc"></div>
             </div>
@@ -165,13 +181,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 13. Actividad física vs ICA -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟢</span>
                 13. Actividad Física vs Índice Cintura-Altura (ICA)
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física y el ICA. Evalúa si la actividad física 
-                influye en el riesgo cardiometabólico medido por el ICA.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-ica"></div>
             </div>
@@ -180,13 +191,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 14. Actividad física vs ICC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟢</span>
                 14. Actividad Física vs Índice Cintura-Cadera (ICC)
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física y el ICC. Permite evaluar el impacto 
-                del ejercicio en la distribución de grasa corporal.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-icc"></div>
             </div>
@@ -195,13 +201,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 15. Actividad física vs Grasa corporal -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟢</span>
                 15. Actividad Física vs Grasa Corporal Total
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física y el porcentaje de grasa corporal.
-                Evalúa la efectividad del ejercicio en la reducción de grasa corporal.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-grasa"></div>
             </div>
@@ -210,13 +211,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 16. Actividad física vs Masa muscular -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟢</span>
                 16. Actividad Física vs Masa Muscular Total
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física y el porcentaje de masa muscular.
-                Permite visualizar el impacto del ejercicio en el desarrollo muscular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-muscular"></div>
             </div>
@@ -232,13 +228,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 17. Sueño vs IMC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟣</span>
                 17. Calidad del Sueño (PSQI) vs IMC
             </h2>
-            <p class="descripcion">
-                Relación entre la puntuación de calidad del sueño (PSQI simplificado) y el IMC.
-                Una mayor puntuación indica peor calidad del sueño.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-imc"></div>
             </div>
@@ -247,13 +238,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 18. Sueño vs ICA -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟣</span>
                 18. Calidad del Sueño vs Índice Cintura-Altura (ICA)
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y el riesgo cardiometabólico medido por ICA.
-                Evalúa si los trastornos del sueño se asocian con mayor riesgo.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-ica"></div>
             </div>
@@ -262,13 +248,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 19. Sueño vs ICC -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟣</span>
                 19. Calidad del Sueño vs Índice Cintura-Cadera (ICC)
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y el ICC. Permite explorar la conexión 
-                entre el descanso y la distribución de grasa corporal.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-icc"></div>
             </div>
@@ -277,13 +258,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 20. Sueño vs Grasa corporal -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟣</span>
                 20. Calidad del Sueño vs Grasa Corporal Total
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y el porcentaje de grasa corporal.
-                Evalúa si dormir mal se asocia con mayor acumulación de grasa.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-grasa"></div>
             </div>
@@ -292,13 +268,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 21. Sueño vs Masa muscular -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟣</span>
                 21. Calidad del Sueño vs Masa Muscular Total
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y el porcentaje de masa muscular.
-                El descanso adecuado es fundamental para la recuperación y desarrollo muscular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-muscular"></div>
             </div>
@@ -314,13 +285,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 22. Dieta vs Actividad física -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟠</span>
                 22. Dieta Mediterránea vs Actividad Física
             </h2>
-            <p class="descripcion">
-                Relación entre la adherencia a la dieta mediterránea y el nivel de actividad física.
-                Explora si las personas con mejor alimentación también son más activas físicamente.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-actividad"></div>
             </div>
@@ -329,13 +295,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 23. Dieta vs Sueño -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟠</span>
                 23. Dieta Mediterránea vs Calidad del Sueño
             </h2>
-            <p class="descripcion">
-                Relación entre la adherencia a la dieta mediterránea y la calidad del sueño.
-                Evalúa si una mejor alimentación contribuye a un mejor descanso.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-sueno"></div>
             </div>
@@ -344,13 +305,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 24. Sueño vs Actividad física -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">🟠</span>
                 24. Calidad del Sueño vs Actividad Física
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y el nivel de actividad física.
-                Explora la conexión bidireccional entre el descanso y el ejercicio.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-actividad"></div>
             </div>
@@ -366,13 +322,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 25. ICC vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 25. ICC vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre el Índice Cintura-Cadera y la frecuencia cardíaca en reposo.
-                Una frecuencia cardíaca elevada en reposo puede indicar mayor riesgo cardiovascular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-icc-frecuencia"></div>
             </div>
@@ -381,13 +332,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 26. ICA vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 26. ICA vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre el Índice Cintura-Altura y la frecuencia cardíaca en reposo.
-                Evalúa la asociación entre riesgo cardiometabólico y función cardiovascular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-ica-frecuencia"></div>
             </div>
@@ -396,13 +342,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 27. Grasa visceral vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 27. Grasa Visceral vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de grasa visceral y la frecuencia cardíaca en reposo.
-                La grasa visceral es un factor de riesgo cardiovascular importante.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-visceral-frecuencia"></div>
             </div>
@@ -411,13 +352,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 28. Dieta vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 28. Dieta Mediterránea vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre la adherencia a la dieta mediterránea y la frecuencia cardíaca en reposo.
-                Una dieta saludable puede contribuir a una mejor salud cardiovascular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-dieta-frecuencia"></div>
             </div>
@@ -426,13 +362,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 29. Actividad física vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 29. Actividad Física vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre el nivel de actividad física y la frecuencia cardíaca en reposo.
-                El ejercicio regular suele asociarse con una menor frecuencia cardíaca en reposo.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-actividad-frecuencia"></div>
             </div>
@@ -441,13 +372,8 @@ function mostrarAnalisisCompleto($datosGraficas, $datosParticipante, $cod_partic
         <!-- 30. Sueño vs Frecuencia cardíaca -->
         <div class="grafica-container">
             <h2>
-                <span class="icono-grafica">❤️</span>
                 30. Calidad del Sueño vs Frecuencia Cardíaca en Reposo
             </h2>
-            <p class="descripcion">
-                Relación entre la calidad del sueño y la frecuencia cardíaca en reposo.
-                Los trastornos del sueño pueden afectar negativamente la salud cardiovascular.
-            </p>
             <div class="grafica-wrapper">
                 <div id="grafica-sueno-frecuencia"></div>
             </div>
