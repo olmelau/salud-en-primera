@@ -7,8 +7,8 @@ function crearGraficaCategorica(contenedorId, datos, campoCategoria, campoSubcat
     
     // Configuración de dimensiones
     const margin = { top: 60, right: 150, bottom: 80, left: 70 };
-    const width = 900 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+    const width = 600 - margin.left - margin.right;
+    const height = 300 - margin.top - margin.bottom;
     
     // Crear SVG
     const svg = d3.select(`#${contenedorId}`)
@@ -135,8 +135,8 @@ function crearGraficaDispersion(contenedorId, datos, campoCategoria, campoX, cam
     
     // Configuración
     const margin = { top: 60, right: 150, bottom: 80, left: 70 };
-    const width = 900 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+    const width = 600 - margin.left - margin.right;
+    const height = 300 - margin.top - margin.bottom;
     
     // Crear SVG
     const svg = d3.select(`#${contenedorId}`)

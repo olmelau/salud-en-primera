@@ -20,31 +20,41 @@ function mostrarGraficasIMC($datosGraficas)
         <header>
             <div class="header">
                 <img src="../public/assets/Logo.png" class="logo-salud">
-                <h1 class="titulo-main">Salud en primera persona</h1>
+                <h1 class="titulo-main">SALUD EN PRIMERA PERSONA</h1>
                 <nav class="menu-container">
                     <ul class="menu-item"><a href="index.php?controller=landing&action=landing">Inicio</a></ul>
                     <ul class="menu-item"><a href="index.php?controller=home&action=home">Log in</a></ul>
                 </nav>
             </div>
         </header>
-        <div class="main-container">
+        <main>
+            <div class="main-container">
 
-            <div class="grafica-wraper">
-                <div id="grafica-familia-imc"></div>
-            </div>
-            <div class="grafica-wraper">
-                <div id="grafica-sexo-imc"></div>
-            </div>
-            <div class="grafica-wraper">
-                <div id="grafica-centro-imc"></div>
-            </div>
-            <div class="grafica-wraper">
-                <div id="grafica-familia-imc-puntos"></div>
-            </div>
+                <div class="grafica-wrapper">
+                    <div id="grafica-familia-imc"></div>
+                </div>
+                <div class="grafica-wrapper">
+                    <div id="grafica-sexo-imc"></div>
+                </div>
+                <div class="grafica-wrapper">
+                    <div id="grafica-centro-imc"></div>
+                </div>
+                <div class="grafica-wrapper">
+                    <div id="grafica-familia-imc-puntos"></div>
+                </div>
 
-  
-
-        </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-container">
+                <div class="item-footer"><img src="../public/assets/es_cofinanciado_logo_peqqueno.png" alt=""></div>
+                <div class="item-footer"><img src="../public/assets/FP_CLM.jpg" alt=""></div>
+                <div class="item-footer"><img src="../public/assets/JCCM.png" alt=""></div>
+                <div class="item-footer"><img src="..public/assets/Ministerio Educaciขn.png" alt=""></div>
+                <div class="item-footer"><img src="../public/assets/Logo Hervás.png" alt=""></div>
+                <div class="item-footer"><img src="../public/assets/logo_rehecho_fondo_blanco.png" alt=""></div>
+            </div>
+        </footer>
 
         <script>
             // Pasar datos de PHP a JavaScript
