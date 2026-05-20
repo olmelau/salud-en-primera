@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../frontend/css/style.css">
+    <link rel="stylesheet" href="../frontend/css/style-formulario.css">
     <title>Encuesta Valores Antropométricos</title>
 </head>
 <body>
     <h1>RECOGIDA DE DATOS ANONIMIZADA DE VALORES ANTROPOMÉTRICOS</h1>
     
     <?php if (isset($mensaje)): ?>
-        <div style="color: <?php echo $tipo_mensaje == 'exito' ? 'green' : 'red'; ?>; padding: 10px; margin: 10px 0; border: 1px solid;">
+        <div <?php echo $tipo_mensaje == 'exito' ? 'green' : 'red'; ?>>
             <?php echo $mensaje; ?>
         </div>
     <?php endif; ?>
@@ -143,12 +145,18 @@
             <textarea id="Ant21" name="Ant21" rows="5" cols="50"></textarea>
         </fieldset>
 
-        <input type="submit" value="Enviar" name="enviar">
+         <div class="btn-enviar-form">
+                <button type="submit">Enviar</button>
+
+            </div>
     </form>
 
     <!-- BOTON PARA VOLVER A LOS FORMULARIOS -->
     <form action="index.php?controller=admin&action=mostrarPaginaAdmin" method="post">
-        <input type="submit" value="Volver a los formularios">
+        <div class="btn-volver">
+                <button type="submit">Volver a los formularios</button>
+
+            </div>
     </form>
 </body>
 </html>

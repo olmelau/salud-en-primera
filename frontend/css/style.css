@@ -1,0 +1,134 @@
+/* Variables root */
+:root {
+    --primary-color: #0071BC;
+    --secondary-color: #29B6F6;
+    --background-color: #F4F7F6;
+    --texto-principal: #2C3E50;
+
+    --boton-completado: #5ee49f;
+    --boton-sin-completar: #e45e5e;
+
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* AJUSTES GENERALES */
+* {
+
+    font-family: var(--fuente-principal);
+    text-decoration: none;
+}
+
+header{
+    margin-top: 1vh;
+    margin-left: 6vh;
+    margin-right: 6vh;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--texto-principal);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+h1,
+h2,
+h3 {
+    color: var(--texto-principal);
+    text-align: center;
+}
+
+button{
+    height: 15vh;
+    width:25vh;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
+
+main {
+    flex: 1;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+.menu-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-salud {
+    width: 20vh;
+}
+
+/* CONTENEDOR MAIN CON LAS GRAFICAS PUBLICAS */
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding-right: 5%;
+    padding-left: 5%;
+
+}
+
+
+
+/* BOTONES */
+/* BOTON LOGIN */
+.btn-login{
+    height: 5vh;
+    width: 22vh;
+    background-color: var(--secondary-color);
+    color: var(--texto-principal);
+}
+
+.btn-login:hover{
+    color: var(--background-color);
+    background-color: var(--primary-color);
+
+}
+.botones-formularios,
+.analisis-container,
+.opt-admin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4vh;
+}
+
+.nuevo-part{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+/* FOOTER */
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+
+footer img {
+    height: 60px;
+}

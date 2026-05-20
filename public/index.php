@@ -3,8 +3,8 @@
 //Sacamos el nombre del controlador da igual si viene por GET o por POST. 
 //Posteriormente en cada controlador comprobaremos por donde viene si fuese un requisito (Por ejemplo, login tiene que ser POST).
 //Cualquier error de autentificacion y la primera vez que se entra por defecto, lanza el home.
-$controller = $_GET['controller'] ?? $_POST['controller'] ?? 'home';
-$action = $_GET['action'] ?? $_POST['action'] ?? 'home';
+$controller = $_GET['controller'] ?? $_POST['controller'] ?? 'landing';
+$action = $_GET['action'] ?? $_POST['action'] ?? 'landing';
 
 $parametros = []; //El array donde guardaremos los parametros
 //ESTE SE LLAMA DESPUES EN CADA CONTROLADOR $datos.
